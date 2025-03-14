@@ -31,8 +31,11 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
+    "resources": {
+      "../../midway/_build/prod": "/"
+    },
     "externalBin": [
-      "../../binaries/midway"
+      "../../midway/_build/prod/rel/midway/bin/midway"
     ]
   }
 }

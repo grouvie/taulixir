@@ -18,7 +18,7 @@ pub fn run() {
             let sidecar_command = app
                 .shell()
                 .sidecar("midway")
-                .expect("Creating sidecar Command failed");
+                .expect("Creating sidecar Command failed").arg("start");
 
             // Spawn the sidecar
             let (mut rx, child) = sidecar_command.spawn().expect("Failed to spawn sidecar");

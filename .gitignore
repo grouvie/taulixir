@@ -34,3 +34,5 @@
 
 # Temporary files, for example, from tests.
 /midway/tmp/
+
+.lexical
