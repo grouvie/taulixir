@@ -1,0 +1,36 @@
+# Tauri
+/app/.DS_Store
+/app/node_modules
+/app/build
+/app/.svelte-kit
+/app/package
+/app/.env
+/app/.env.*
+/app/!.env.example
+/app/vite.config.js.timestamp-*
+/app/vite.config.ts.timestamp-*
+
+# Midway
+# The directory Mix will write compiled artifacts to.
+/midway/_build/
+
+# If you run "mix test --cover", coverage assets end up here.
+/midway/cover/
+
+# The directory Mix downloads your dependencies sources to.
+/midway/deps/
+
+# Where third-party dependencies like ExDoc output generated docs.
+/midway/doc/
+
+# If the VM crashes, it generates a dump, let's ignore it too.
+**/erl_crash.dump
+
+# Also ignore archive artifacts (built via "mix archive.build").
+/midway/*.ez
+
+# Ignore package tarball (built via "mix hex.build").
+/midway/midway-*.tar
+
+# Temporary files, for example, from tests.
+/midway/tmp/
