@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { fetch } from "@tauri-apps/plugin-http";
+  import { invoke_erl_rpc } from "tauri-plugin-erl-rpc";
 
   const BASE_URL = "http://localhost:8080";
 
-  let counter: number | null = null;
+  let counter: number | null = 0;
   let error: string | null = null;
 
   function getErrorMessage(err: unknown): string {
@@ -14,49 +13,36 @@
 
   async function loadCounter() {
     try {
-      const res = await fetch(`${BASE_URL}/`);
-      if (!res.ok) {
-        throw new Error("Failed to load counter");
-      }
-      const text = await res.text();
-      counter = parseInt(text);
+      const res = await invoke_erl_rpc("Elixir.Midway.Counter", "get", null);
+
+      counter = Number(res);
       error = null;
     } catch (err: unknown) {
       error = getErrorMessage(err);
     }
   }
 
-  // Call /increase
   async function increaseCounter() {
     try {
-      const res = await fetch(`${BASE_URL}/increase`);
-      if (!res.ok) {
-        throw new Error("Failed to increase counter");
-      }
-      const text = await res.text();
-      counter = parseInt(text);
+      const res = await invoke_erl_rpc("Elixir.Midway.Counter", "inc", null);
+
+      counter = Number(res);
       error = null;
     } catch (err: unknown) {
       error = getErrorMessage(err);
     }
   }
 
-  // Call /decrease
   async function decreaseCounter() {
     try {
-      const res = await fetch(`${BASE_URL}/decrease`);
-      if (!res.ok) {
-        throw new Error("Failed to decrease counter");
-      }
-      const text = await res.text();
-      counter = parseInt(text);
+      const res = await invoke_erl_rpc("Elixir.Midway.Counter", "dec", null);
+
+      counter = Number(res);
       error = null;
     } catch (err: unknown) {
       error = getErrorMessage(err);
     }
   }
-
-  onMount(loadCounter);
 </script>
 
 <main class="container">

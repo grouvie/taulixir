@@ -1,0 +1,13 @@
+# Automatically generated - DO NOT EDIT!
+
+"$schema" = "../../schemas/schema.json"
+
+[[permission]]
+identifier = "allow-invoke-erl-rpc"
+description = "Enables the invoke_erl_rpc command without any pre-configured scope."
+commands.allow = ["invoke_erl_rpc"]
+
+[[permission]]
+identifier = "deny-invoke-erl-rpc"
+description = "Denies the invoke_erl_rpc command without any pre-configured scope."
+commands.deny = ["invoke_erl_rpc"]

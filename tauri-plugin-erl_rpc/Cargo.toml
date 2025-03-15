@@ -1,0 +1,21 @@
+[package]
+name = "tauri-plugin-erl-rpc"
+version = "0.1.0"
+authors = ["You"]
+description = ""
+edition = "2021"
+rust-version = "1.77.2"
+exclude = ["/examples", "/dist-js", "/guest-js", "/node_modules"]
+links = "tauri-plugin-erl_rpc"
+
+[dependencies]
+tauri = { version = "2.3.1" }
+serde = "1.0"
+thiserror = "2"
+erl_rpc = "0.3.0"
+erl_dist = "0.6.0"
+serde_json = "1.0.140"
+tokio = { version = "1.37.0", features = ["rt-multi-thread"] }
+
+[build-dependencies]
+tauri-plugin = { version = "2.0.4", features = ["build"] }

@@ -13,12 +13,14 @@ pub fn run() {
         .plugin(tauri_plugin_http::init())
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_opener::init())
+        .plugin(tauri_plugin_erl_rpc::init())
         .setup(move |app| {
             // Acquire the shell, create the sidecar command.
             let sidecar_command = app
                 .shell()
                 .sidecar("midway")
-                .expect("Creating sidecar Command failed").arg("start");
+                .expect("Creating sidecar Command failed")
+                .args(["start"]);
 
             // Spawn the sidecar
             let (mut rx, child) = sidecar_command.spawn().expect("Failed to spawn sidecar");
@@ -40,6 +42,9 @@ pub fn run() {
                         }
                         CommandEvent::Terminated(status) => {
                             println!("Sidecar terminated with: {:?}", status);
+                        }
+                        CommandEvent::Error(error) => {
+                            println!("Sidecar error: {:?}", error);
                         }
                         _ => {}
                     }

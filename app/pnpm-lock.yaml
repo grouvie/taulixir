@@ -20,6 +20,9 @@ importers:
       '@tauri-apps/plugin-shell':
         specifier: ~2
         version: 2.2.0
+      tauri-plugin-erl-rpc:
+        specifier: file:../tauri-plugin-erl_rpc
+        version: tauri-plugin-erl-rpc-api@file:../tauri-plugin-erl_rpc
     devDependencies:
       '@sveltejs/adapter-static':
         specifier: ^3.0.6
@@ -575,6 +578,9 @@ packages:
     resolution: {integrity: sha512-v0lL3NuKontiCxholEiAXCB+BYbndlKbwlDMK0DS86WgGELMJSpyqCSbJeMEMBDwOglnS7Ar2Rq0wwa/z2L8Vg==}
     engines: {node: '>=18'}
 
+  tauri-plugin-erl-rpc-api@file:../tauri-plugin-erl_rpc:
+    resolution: {directory: ../tauri-plugin-erl_rpc, type: directory}
+
   totalist@3.0.1:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
     engines: {node: '>=6'}
@@ -1061,6 +1067,10 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.17
       zimmerframe: 1.1.2
+
+  tauri-plugin-erl-rpc-api@file:../tauri-plugin-erl_rpc:
+    dependencies:
+      '@tauri-apps/api': 2.3.0
 
   totalist@3.0.1: {}
 

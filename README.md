@@ -2,7 +2,7 @@
 
 Taulixir is a sample project demonstrating how to integrate a Tauri desktop application with an Elixir-powered backend.
 
-> **Demo:** A Svelte-based counter UI provides buttons to increase, decrease, and refresh a counter. User actions are routed via HTTP requests to an Elixir (plug_cowboy) backend sidecar, which then returns the updated counter value to the UI for display.
+> **Demo:** A Svelte-based counter UI provides buttons to increase, decrease, and refresh a counter. User actions are routed via [Erlang RPC](https://crates.io/crates/erl_rpc) requests to an Elixir backend sidecar, which then returns the updated counter value to the UI for display.
 
 ---
 
@@ -57,6 +57,8 @@ Once the Elixir build is complete:
    This ensures Tauri automatically includes it during the build process.
    For more details on the required naming conventions, please refer to the [Tauri sidecar documentation](https://v2.tauri.app/develop/sidecar/).
 
+2. Update the `plugins.erl-rpc` variables in [tauri.conf.json](app/src-tauri/tauri.conf.json). You can find the cookie value in [COOKIE](midway/_build/prod/rel/midway/releases/COOKIE)
+
 ### Launching the Application
 
 Navigate to the `app` subfolder and start the Tauri application in development mode by running:
@@ -69,6 +71,5 @@ cargo tauri dev
 
 ## Notes
 
-- The Elixir sidecar runs on port **8080** and is accessible outside the Tauri environment.
 - This build has been tested on Linux, so platform-specific configurations or adjustments may be necessary for macOS or Windows.
 - Mobile support has been minimally tested and has not worked so far.

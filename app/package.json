@@ -16,7 +16,8 @@
     "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-http": "~2",
     "@tauri-apps/plugin-opener": "^2",
-    "@tauri-apps/plugin-shell": "~2"
+    "@tauri-apps/plugin-shell": "~2",
+    "tauri-plugin-erl-rpc": "file:../tauri-plugin-erl_rpc"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.6",

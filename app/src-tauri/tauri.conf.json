@@ -21,6 +21,12 @@
       "csp": null
     }
   },
+  "plugins": {
+    "erl-rpc": {
+      "server_node_name": "midway@localhost",
+      "cookie": "54PJTHGHWLKI3LPWQBAZGKVJ2DSAMFE5NE2N4SEVC563EVKKG2NA===="
+    }
+  },
   "bundle": {
     "active": true,
     "targets": "all",
